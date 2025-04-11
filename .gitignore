@@ -1,0 +1,35 @@
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore PyCharm, VS Code, and other IDE/project files
+.idea/
+.vscode/
+
+# Ignore dataset and model files (can be very large)
+kvasir-seg/
+models/unet_kvasirseg.pth
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore any other files that are not necessary for the repo
+*.bak
+*.swp
