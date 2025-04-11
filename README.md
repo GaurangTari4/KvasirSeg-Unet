@@ -1,27 +1,41 @@
-# Kvasir-SEG Image Segmentation with U-Net
+# 🚑 Kvasir-SEG Image Segmentation with U-Net
 
-This repository implements an image segmentation model using the U-Net architecture to segment gastrointestinal images from the Kvasir-SEG dataset. The model is trained and evaluated using Dice score and Intersection over Union (IoU) as metrics.
+This repository implements an image segmentation model using the **U-Net** architecture to segment gastrointestinal images from the **Kvasir-SEG** dataset. The model is trained and evaluated using **Dice Score** and **Intersection over Union (IoU)** as performance metrics.
 
-## Project Structure
+---
 
-The project is organized into the following main directories and files:
+## 📁 Project Structure
 
-- **`dataset/`**: Contains scripts to download and load the Kvasir-SEG dataset.
-- **`model/`**: Contains the U-Net model definition.
-- **`scripts/`**: Main training script and execution.
-- **`utils/`**: Contains utility functions for metrics and visualization.
-- **`.gitignore`**: Specifies which files and directories to ignore in the Git repository.
-- **`README.md`**: Project documentation (this file).
-- **`requirements.txt`**: Python dependencies for the project.
+```
+KvasirSeg-Unet/
+├── dataset/       # Dataset download and loading scripts
+├── model/         # U-Net model definition
+├── scripts/       # Training script
+├── utils/         # Metrics and visualization utilities
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
-## Dataset
+---
 
-The Kvasir-SEG dataset can be downloaded from [here](https://datasets.simula.no/downloads/kvasir-seg.zip). Once downloaded, the dataset will be automatically extracted and used for training the segmentation model.
+## 📦 Dataset
 
-## Requirements
+Download the Kvasir-SEG dataset from [here](https://datasets.simula.no/downloads/kvasir-seg.zip).
 
-To run the project, you need to install the following dependencies:
+Once downloaded, the dataset will be automatically extracted and used for training and validation.
 
+---
+
+## ✅ Requirements
+
+Install all dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Required Packages
 - Python 3.x
 - PyTorch
 - OpenCV
@@ -30,75 +44,79 @@ To run the project, you need to install the following dependencies:
 - scikit-learn
 - matplotlib
 
-To install the dependencies, run:
+---
 
-```bash
-pip install -r requirements.txt
+## 🚀 Training the Model
 
-
-## Training the Model
-
-To train the model, run the `train.py` script located in the `scripts/` directory. This will download the dataset (if not already downloaded), preprocess the data, and start training the U-Net model.
+To begin training the model:
 
 ```bash
 python scripts/train.py
+```
 
+This script will:
+- Download and prepare the dataset (if needed)
+- Train the U-Net model on Kvasir-SEG
+- Save the trained model to `models/unet_kvasirseg.pth`
 
-The training process includes:
+---
 
-Loading and preprocessing images and masks.
+## 🧠 U-Net Architecture
 
-Training the U-Net model on the dataset.
+The U-Net model includes:
+- **Encoder**: Downsampling path using convolutional layers
+- **Bottleneck**: Deepest layer capturing abstract features
+- **Decoder**: Upsampling path using transposed convolutions
+- **Skip Connections**: Connect encoder features to corresponding decoder layers for better localization
 
-Saving the trained model to models/unet_kvasirseg.pth.
+---
 
-Model Architecture
-The U-Net model architecture consists of the following components:
+## ⚙️ Hyperparameters
 
-Encoder: A series of convolutional blocks that downsample the input image.
+| Parameter       | Value        |
+|----------------|--------------|
+| Learning Rate  | 1e-5         |
+| Batch Size     | 8            |
+| Epochs         | 100          |
+| Loss Function  | BCE + Dice   |
 
-Bottleneck: The deepest part of the network where the most abstract features are learned.
+---
 
-Decoder: A series of transposed convolutions to upsample and recover the spatial resolution.
+## 📊 Evaluation Metrics
 
-Skip Connections: These allow the network to directly pass feature maps from the encoder to the decoder.
+- **Dice Coefficient**: Measures overlap between predicted and ground truth masks
+- **IoU (Intersection over Union)**: Evaluates segmentation quality
 
-Hyperparameters
-Learning Rate: 1e-5
+Metrics are printed after each training epoch.
 
-Batch Size: 8
+---
 
-Epochs: 100
+## 🖼️ Visualization
 
-Loss Function: A combination of binary cross-entropy and Dice coefficient.
+During training, visualizations are generated (every few epochs or final epoch), including:
+- Input Image
+- Ground Truth Mask
+- Predicted Mask
 
-Evaluation
-During training, the model is evaluated on the validation set at the end of each epoch using the following metrics:
+This helps to monitor the model's learning progress.
 
-Dice Coefficient: A metric for the overlap between predicted and ground truth masks.
+---
 
-Intersection over Union (IoU): A metric to evaluate the quality of the predicted mask.
+## 💾 Saving the Model
 
-Validation metrics are printed at the end of each epoch.
+The final trained model is saved to:
 
-Visualization
-After every few epochs (every 5 epochs or at the final epoch), the following images will be displayed:
-
-Input Image: The original input image.
-
-Ground Truth Mask: The actual segmentation mask.
-
-Predicted Mask: The mask predicted by the U-Net model.
-
-These visualizations help track the progress of the model during training.
-
-Saving the Model
-Once training is complete, the trained model will be saved as a .pth file in the models/ directory:
-```bash
+```
 models/unet_kvasirseg.pth
+```
 
+You can later load this model for inference or fine-tuning.
 
-Acknowledgements
-The Kvasir-SEG dataset used in this project is available from Simula Research Laboratory.
+---
 
-The U-Net model architecture was introduced by Olaf Ronneberger et al. in their paper "U-Net: Convolutional Networks for Biomedical Image Segmentation" (2015).
+## 🙏 Acknowledgements
+
+- **Dataset**: [Kvasir-SEG](https://datasets.simula.no/kvasir-seg/) by Simula Research Laboratory  
+- **Model**: U-Net introduced in the paper _"U-Net: Convolutional Networks for Biomedical Image Segmentation"_ by Olaf Ronneberger et al. ([arXiv 2015](https://arxiv.org/abs/1505.04597))
+
+---
