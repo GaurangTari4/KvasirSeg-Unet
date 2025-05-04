@@ -90,6 +90,19 @@ The U-Net model includes:
 Metrics are printed after each training epoch.
 
 ---
+## 📒 Google Colab Demo
+
+You can try the trained model **directly in your browser** via Google Colab without setting anything up locally:
+
+👉 [**Run on Colab**](https://colab.research.google.com/github/GaurangTari4/KvasirSeg-Unet/blob/main/KvasirSeg_Unet_Demo.ipynb)
+
+This notebook:
+- Installs dependencies
+- Downloads the Kvasir-SEG dataset
+- Loads the pre-trained U-Net model
+- Runs inference on sample images
+- Visualizes the results
+
 
 ## 🖼️ Visualization
 
