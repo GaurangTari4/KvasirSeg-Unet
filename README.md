@@ -94,7 +94,7 @@ Metrics are printed after each training epoch.
 
 You can try the trained model **directly in your browser** via Google Colab without setting anything up locally:
 
-👉 [**Run on Colab**](https://colab.research.google.com/github/GaurangTari4/KvasirSeg-Unet/blob/main/KvasirSeg_Unet_Demo.ipynb)
+👉 [**Run on Colab**](https://colab.research.google.com/github/GaurangTari4/KvasirSeg-Unet/blob/master/KvasirSeg_Unet_Demo.ipynb)
 
 This notebook:
 - Installs dependencies
