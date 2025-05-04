@@ -90,6 +90,20 @@ The U-Net model includes:
 Metrics are printed after each training epoch.
 
 ---
+## 🔗 Pretrained Model
+
+The pre-trained U-Net model for Kvasir-SEG can be downloaded from the link below:
+
+👉 [Download from Google Drive](https://drive.google.com/drive/folders/1lqBnKEcrdXOJnAPidseO2diU8faGdUK7?usp=sharing)
+
+After downloading, place the `unet_kvasirseg.pth` file in the `models/` directory:
+
+```
+KvasirSeg-Unet/
+├── models/
+│   └── unet_kvasirseg.pth  ← Place it here
+```
+
 ## 📒 Google Colab Demo
 
 You can try the trained model **directly in your browser** via Google Colab without setting anything up locally:
