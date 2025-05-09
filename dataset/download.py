@@ -2,7 +2,7 @@ import os
 import zipfile
 import urllib.request
 
-URL = "https://datasets.simula.no/kvasir-seg/Kvasir-SEG.zip"
+URL = "https://datasets.simula.no/downloads/kvasir-seg.zip"
 DEST_DIR = "data"
 ZIP_NAME = "Kvasir-SEG.zip"
 
