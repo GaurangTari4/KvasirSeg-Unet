@@ -27,7 +27,6 @@ class KvasirDataset(Dataset):
 
         return image, mask
 
-# New function to return DataLoader
 def get_dataloader(data_dir, batch_size=4, split='train'):
     """
     Function to get DataLoader for the Kvasir-SEG dataset.
@@ -37,8 +36,8 @@ def get_dataloader(data_dir, batch_size=4, split='train'):
     :param split: 'train' or 'val' split
     :return: DataLoader instance for the specified dataset split
     """
-    image_dir = os.path.join(data_dir, 'images')
-    mask_dir = os.path.join(data_dir, 'masks')
+    image_dir = os.path.join(data_dir, 'Kvasir-SEG', 'images')
+    mask_dir = os.path.join(data_dir, 'Kvasir-SEG', 'masks')
 
     # Define transformations for data
     transform = transforms.Compose([
