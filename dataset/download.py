@@ -2,9 +2,10 @@ import os
 import zipfile
 import urllib.request
 
+# ✅ Updated dataset URL and filename
 URL = "https://datasets.simula.no/downloads/kvasir-seg.zip"
 DEST_DIR = "data"
-ZIP_NAME = "Kvasir-SEG.zip"
+ZIP_NAME = "kvasir-seg.zip"
 
 def download_and_extract():
     os.makedirs(DEST_DIR, exist_ok=True)
