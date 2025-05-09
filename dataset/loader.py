@@ -1,6 +1,7 @@
 import os
 from PIL import Image
-from torch.utils.data import Dataset
+import torch
+from torch.utils.data import DataLoader, Dataset
 import torchvision.transforms as transforms
 
 class KvasirDataset(Dataset):
@@ -25,3 +26,36 @@ class KvasirDataset(Dataset):
             mask = self.transform(mask)
 
         return image, mask
+
+# New function to return DataLoader
+def get_dataloader(data_dir, batch_size=4, split='train'):
+    """
+    Function to get DataLoader for the Kvasir-SEG dataset.
+    
+    :param data_dir: Directory containing the dataset
+    :param batch_size: Batch size for DataLoader
+    :param split: 'train' or 'val' split
+    :return: DataLoader instance for the specified dataset split
+    """
+    image_dir = os.path.join(data_dir, 'images')
+    mask_dir = os.path.join(data_dir, 'masks')
+
+    # Define transformations for data
+    transform = transforms.Compose([
+        transforms.Resize((256, 256)),
+        transforms.ToTensor(),
+    ])
+
+    dataset = KvasirDataset(image_dir, mask_dir, transform=transform)
+
+    # Split the dataset into training and validation sets
+    total_size = len(dataset)
+    val_size = int(0.2 * total_size)  # 20% for validation
+    train_size = total_size - val_size
+
+    train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
+
+    if split == 'train':
+        return DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    else:
+        return DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
