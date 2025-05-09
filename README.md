@@ -12,6 +12,8 @@ KvasirSeg-Unet/
 ├── model/         # U-Net model definition
 ├── scripts/       # Training script
 ├── utils/         # Metrics and visualization utilities
+├── models/        # Trained models
+├── KvasirSeg-Unet_Demo.ipynb  # Colab demo notebook
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -108,7 +110,7 @@ KvasirSeg-Unet/
 
 You can try the trained model **directly in your browser** via Google Colab without setting anything up locally:
 
-👉 [**Run on Colab**](https://colab.research.google.com/github/GaurangTari4/KvasirSeg-Unet/blob/master/KvasirSeg_Unet_Demo.ipynb)
+👉 [**Run on Colab**](https://colab.research.google.com/github/GaurangTari4/KvasirSeg-Unet/blob/master/KvasirSeg-Unet_Demo.ipynb)
 
 This notebook:
 - Installs dependencies
@@ -116,7 +118,6 @@ This notebook:
 - Loads the pre-trained U-Net model
 - Runs inference on sample images
 - Visualizes the results
-
 
 ## 🖼️ Visualization
 
