@@ -5,3 +5,6 @@ opencv-python
 tqdm
 scikit-learn
 matplotlib
+Pillow
+numpy
+requests
