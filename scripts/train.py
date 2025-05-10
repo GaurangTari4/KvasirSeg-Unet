@@ -1,5 +1,7 @@
-import torch
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+import torch
 from dataset.loader import get_dataloader
 from model.unet import UNet
 from utils.metrics import dice_coefficient, iou_score
